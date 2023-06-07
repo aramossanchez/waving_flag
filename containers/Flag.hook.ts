@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function useFlag() {
 
-  const numberOfColumns = 30;
+  const numberOfColumns = 20;
   const numberOfRows = 8;
 
   const [columns, setColumns] = useState<string[]>([]);
