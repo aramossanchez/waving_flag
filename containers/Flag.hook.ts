@@ -7,6 +7,7 @@ export default function useFlag() {
 
   const [columns, setColumns] = useState<string[]>([]);
   const [rows, setRows] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const createColumns = () => {
     const preColumns = [];
@@ -24,11 +25,19 @@ export default function useFlag() {
     setRows(preRows);
   }
 
+  const loader = () => {
+    const timeOut = numberOfColumns * 100
+    setTimeout(() => {
+      setLoading(false);
+    }, timeOut);
+  }
+
   useEffect(() => {
     createColumns();
     createRows();
+    loader();
   }, []);
     
 
-  return {columns, rows};
+  return {columns, rows, loading};
 }
