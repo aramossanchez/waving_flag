@@ -14,7 +14,6 @@ export default function FlagContainer() {
           <div key={`row-${row}`} className={`relative flex flex-row w-full flex-1`}>
             {columns.map((column) => {
               return (
-                
                 <div
                 key={`row-${row}-column-${column}`}
                 className={`h-full relative flex-1 ${style[`row-${row}`]} ${style[`column-${column}`]} ${style.column}`}
