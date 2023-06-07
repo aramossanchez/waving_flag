@@ -8,7 +8,7 @@ export default function FlagContainer() {
   const { columns, rows } = useFlag();
 
   return (
-    <main className="w-[1024px] h-[768px] flex flex-col items-center justify-center py-[10px]">
+    <main className="w-[90vw] h-[70vw] lg:w-[1024px] lg:h-[768px] flex flex-col items-center justify-center py-[10px]">
       {rows.map((row) => {
         return (
           <div key={`row-${row}`} className={`relative flex flex-row w-full flex-1`}>
