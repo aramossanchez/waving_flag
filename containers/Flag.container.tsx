@@ -25,7 +25,7 @@ export default function FlagContainer() {
                       animationDuration: '1.5s',
                       animationTimingFunction: 'ease-in-out',
                       animationIterationCount: 'infinite',
-                      animationDelay: `${column.length <= 1 ? `0.${column}s` : `${column[0]}.${column[1]}s`}`,
+                      animationDelay: `${column.length <= 1 ? `0.${column}s` : `${column[0]}.${column[1]}s`}`
                     }}
                   >
                   </div>

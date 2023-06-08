@@ -23,6 +23,10 @@
   background-color: rgb(127, 0, 255);
 }
 
+.column {
+  animation-fill-mode: backwards;
+}
+
 @keyframes oscilate {
   0% {
     top: -10px;
