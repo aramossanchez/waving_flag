@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 
-export default function useFlag() {
+export default function useFlagGeeksHubs() {
 
-  const numberOfColumns = 20;
-  const numberOfRows = 8;
+  const numberOfColumns = 40;
+  const numberOfRows = 18;
 
   const [columns, setColumns] = useState<string[]>([]);
   const [rows, setRows] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
 
   const createColumns = () => {
     const preColumns = [];
@@ -25,19 +24,11 @@ export default function useFlag() {
     setRows(preRows);
   }
 
-  const loader = () => {
-    const timeOut = numberOfColumns * 100
-    setTimeout(() => {
-      setLoading(false);
-    }, timeOut);
-  }
-
   useEffect(() => {
     createColumns();
     createRows();
-    loader();
   }, []);
     
 
-  return {columns, rows, loading};
+  return {columns, rows};
 }

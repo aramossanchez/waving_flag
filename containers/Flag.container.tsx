@@ -1,40 +1,38 @@
 'use client';
 
-import useFlag from "./Flag.hook";
-import style from './Flag.module.css';
-import Loader from '../components/Loader/Loader';
+import FlagGeeksHubsComponent from "@/components/FlagGeeksHubs/FlagGeeksHubs.component";
+import FlagPrideComponent from "@/components/FlagPride/FlagPride.component";
+import { IconInnerShadowTopLeftFilled, IconInnerShadowTopLeft } from "@tabler/icons-react";
+import { useState } from "react";
 
 export default function FlagContainer() {
 
-  const { columns, rows, loading } = useFlag();
+  const [activeFlag, setActiveFlag] = useState('LGTBIQ+');
 
   return (
     <main className="w-[100vw] h-[100vh] flex flex-col items-center justify-center bg-black">
-      {loading && <Loader />}
-      <div className="w-[90vw] h-[70vw] lg:w-[1024px] lg:h-[768px] flex flex-col items-center justify-center py-[10px] bg-black">
-        {rows.map((row) => {
-          return (
-            <div key={`row-${row}`} className={`relative flex flex-row w-full flex-1`}>
-              {columns.map((column) => {
-                return (
-                  <div
-                    key={`row-${row}-column-${column}`}
-                    className={`h-full relative flex-1 ${style[`row-${row}`]} ${style[`column-${column}`]} ${style.column}`}
-                    style={{
-                      animationName: style.oscilate,
-                      animationDuration: '1.5s',
-                      animationTimingFunction: 'ease-in-out',
-                      animationIterationCount: 'infinite',
-                      animationDelay: `${column.length <= 1 ? `0.${column}s` : `${column[0]}.${column[1]}s`}`
-                    }}
-                  >
-                  </div>
-                )
-              })}
-            </div>
-          )
-        })}
-      </div>
+      <article className="absolute top-0 left-0 border-2 p-5 gap-3 flex flex-row items-center justify-center border-slate-200 border-l-0 text-white bg-black z-10">
+        <div className="flex flex-column items-center justify-center gap-2 cursor-pointer" onClick={() => setActiveFlag('LGTBIQ+')}>
+          {activeFlag === 'LGTBIQ+' ?
+            <IconInnerShadowTopLeftFilled size={18} color='#fff' />
+            :
+            <IconInnerShadowTopLeft size={18} color='#fff' />}
+          <span>LGTBIQ+</span>
+        </div>
+        <div className="flex flex-column items-center justify-center gap-2 cursor-pointer" onClick={() => setActiveFlag('GeeksHubs')}>
+          {activeFlag === 'GeeksHubs' ?
+            <IconInnerShadowTopLeftFilled size={18} color='#fff' />
+            :
+            <IconInnerShadowTopLeft size={18} color='#fff' />}
+          <span>GeeksHubs</span>
+        </div>
+      </article>
+      {activeFlag === 'LGTBIQ+' &&
+        <FlagPrideComponent />
+      }
+      {activeFlag === 'GeeksHubs' &&
+        <FlagGeeksHubsComponent />
+      }
     </main>
   );
 }
