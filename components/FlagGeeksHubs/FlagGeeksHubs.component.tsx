@@ -37,7 +37,7 @@ export default function FlagGeeksHubsComponent() {
                   `}
                   style={{
                     animationName: style.oscilate,
-                    animationDuration: '1s',
+                    animationDuration: '2s',
                     animationTimingFunction: 'ease-in-out',
                     animationIterationCount: 'infinite',
                     animationDelay: `${column.length <= 1 ? `0.${column}s` : `${column[0]}.${column[1]}s`}`
